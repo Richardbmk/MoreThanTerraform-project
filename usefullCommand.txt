@@ -17,3 +17,10 @@ $ sudo apt instal jq
 $ terraform show -json | jq
 
 $ terraform state list --> show all resources in the current state
+
+$ terraform show | grep ip
+$ terraform show | grep name
+
+$ terraform console
+    > docker_container.nodered_container.name
+    > docker_container.nodered_container.ip_address
