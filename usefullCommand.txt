@@ -1,0 +1,19 @@
+## SECTION_1 : Introduction and Prerequisites ##
+
+$ fallocate -l 1G testfile.img --> create a file with 1Gb of size
+$ docker system prune -a
+$ chmod +x resize.sh
+
+
+## SECTION_2 : Terraform Basics and Docker
+
+$ sudo apt install tree
+$ tree -a
+$ rm -rf .ter*
+$ curl http://169.254.169.254/latest/meta-data/public-ipv4
+
+
+$ sudo apt instal jq
+$ terraform show -json | jq
+
+$ terraform state list --> show all resources in the current state
