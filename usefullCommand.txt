@@ -26,4 +26,25 @@ $ terraform console
     > docker_container.nodered_container.ip_address
     > join(":", [docker_container.nodered_container.ip_address, docker_container.nodered_container.ports[0].external])
     > docker_container.nodered_container[*].name
-$ terrafor output
+    > [for i in [1,2,3,4]: i + 1]
+    > [for i in docker_container.nodered_container[*]: i.name]
+    > [for i in docker_container.nodered_container[*]: i.ports[0]["external"]]
+    > [for i in docker_container.nodered_container[*]: i.ports[*]["external"]]
+    
+    
+    
+    
+$ terraform output
+$ terraform apply --auto-approve -lock=false
+
+$ docker inspect --format="{{.ID}}" nodered-yola
+$ terraform import docker_container.nodered_container2 $(docker inspect --format="{{.ID}}" nodered-yola)
+
+$ terraform refresh
+$ terraform state rm random_string.random[1]
+
+$ terraform plan -input=false
+$ terraform plan -var ext_port=1880
+$ export TF_VAR_ext_port=1880
+$ echo $TF_VAR_ext_port
+$ unset TF_VAR_ext_port
