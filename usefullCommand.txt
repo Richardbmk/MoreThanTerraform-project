@@ -30,6 +30,18 @@ $ terraform console
     > [for i in docker_container.nodered_container[*]: i.name]
     > [for i in docker_container.nodered_container[*]: i.ports[0]["external"]]
     > [for i in docker_container.nodered_container[*]: i.ports[*]["external"]]
+    > max(1,2,3,4)
+    > max([10,20,30,40])
+    > max([10,20,30,40]...)
+    > path.cwd
+    > path.root
+    > "${path.cwd}/noderedvol" --> string interpolation
+    
+    > lookup({dev = "image1", prod = "image2"}, "dev")
+    > lookup({dev = "image1", prod = "image2"}, "prod")
+    > lookup(var.image, "dev")
+    
+    > terraform.workspace
     
     
     
@@ -48,3 +60,15 @@ $ terraform plan -var ext_port=1880
 $ export TF_VAR_ext_port=1880
 $ echo $TF_VAR_ext_port
 $ unset TF_VAR_ext_port
+$ terraform plan --var-file west.tfvars
+$ terraform plan --var-file=central.tfvars
+
+$ terraform plan -var ext_port=1990
+$ terraform show | grep external
+
+$ terraform plan -var="env=prod" | grep name
+
+$ terraform workspace new dev
+$ terraform workspace show
+$ terraform workspace list
+$ terraform workspace select dev
