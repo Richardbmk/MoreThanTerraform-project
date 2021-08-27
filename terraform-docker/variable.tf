@@ -6,16 +6,16 @@
 # }
 
 variable "image" {
-  type = map
+  type        = map(any)
   description = "image for container"
   default = {
-    dev = "nodered/node-red:latest"
+    dev  = "nodered/node-red:latest"
     prod = "nodered/node-red:latest-minimal"
   }
 }
 
 variable "ext_port" {
-  type = map
+  type = map(any)
   #sensitive = true
 
   validation {
