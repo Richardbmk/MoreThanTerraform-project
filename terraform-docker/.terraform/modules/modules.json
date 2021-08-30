@@ -1,1 +1,1 @@
-{"Modules":[{"Key":"container","Source":"./container","Dir":"container"},{"Key":"","Source":"","Dir":"."},{"Key":"image","Source":"./image","Dir":"image"}]}
+{"Modules":[{"Key":"nodered_image","Source":"./image","Dir":"image"},{"Key":"container","Source":"./container","Dir":"container"},{"Key":"","Source":"","Dir":"."},{"Key":"container.volume","Source":"./volume","Dir":"container/volume"},{"Key":"image","Source":"./image","Dir":"image"},{"Key":"influxdb_image","Source":"./image","Dir":"image"}]}

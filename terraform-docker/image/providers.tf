@@ -10,6 +10,3 @@ terraform {
     }
   }
 }
-
-# provider "docker" {}
-# provider "random" {}

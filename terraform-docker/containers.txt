@@ -1,0 +1,3 @@
+nodered-prod-debi: 172.17.0.3:1880
+grafana-prod-dwca: 172.17.0.4:3000
+influxdb-prod-q9fu: 172.17.0.2:8086
