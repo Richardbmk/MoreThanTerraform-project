@@ -43,6 +43,16 @@ $ terraform console
     
     > terraform.workspace
     
+    > module.container
+    > module.container[*].container-name
+    
+    > local.deployment
+    > keys(local.deployment)
+    > values(local.deployment)
+    > values(local.deployment["nodered"])
+    > local.deployment.influxdb.image
+    > {for x in [1, 2, 3, "blue"]: x => "fish"}
+    
     
     
     
@@ -72,3 +82,28 @@ $ terraform workspace new dev
 $ terraform workspace show
 $ terraform workspace list
 $ terraform workspace select dev
+
+$ terraform graph
+
+$ sudo apt install graphviz
+$ terraform graph | dot -Tpdf > graph-plan.pdf
+$ terraform graph -type=plan-destroy | dot -Tpdf > graph-applied.pdf
+
+$ docker logs nodered-dev-j115
+
+$ docker volume ls
+$ ls /var/lib/dcker/volumes/nodered-dev-
+
+$ terraform graph -draw-cycles | dot -Tpdf > graph-cycles.pdf
+
+$ docker volume rm -f $(docker volume ls -q)
+
+$ terraform state list
+$ terraform destroy -target=module.container[0].docker_container.nodered_container
+
+$ tar -tzvf grafana-269w-volume.tar.gz --> to check out what is inside a tar file
+
+$ terraform fmt -recursive
+$ docker inspect $(docker ps -a -q) | grep volume
+
+$ sudo tree /var/lib/docker/volumes
