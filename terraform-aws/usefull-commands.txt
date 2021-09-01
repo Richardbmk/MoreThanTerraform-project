@@ -1,0 +1,11 @@
+$ terraform console
+    > cidrsubnet("172.16.0.0/12", 4, 2)
+        172.18.0.0/16
+    > cidrsubnet("10.1.2.0/24", 4, 15)
+        10.1.2.240/28
+    > cidrsubnet("fd00:fd12:3456:7890::/56", 16, 162)
+        fd00:fd12:3456:7800:a200::/72
+        
+    > range(1, 6, 2)
+    
+    > [for i in range(2, 6, 2) : cidrsubnet("10.123.0.0/16", 8, i)]
