@@ -29,3 +29,5 @@ variable "access_ip" {
 }
 
 variable "security_gorups" {}
+
+variable "db_subnet_group" {}

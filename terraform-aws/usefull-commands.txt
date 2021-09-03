@@ -9,3 +9,12 @@ $ terraform console
     > range(1, 6, 2)
     
     > [for i in range(2, 6, 2) : cidrsubnet("10.123.0.0/16", 8, i)]
+    
+    # Terraform conditionals
+    > "us-east-1" == "us-east-2" ? 3 : 1
+    > true == true ? 1 : 0
+    > false ? 1 : 0
+    
+
+$ sudo apt-get install jq
+$ terraform providers schema -json | jq '.' > schema.json
