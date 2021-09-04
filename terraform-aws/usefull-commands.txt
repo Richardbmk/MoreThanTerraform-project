@@ -15,6 +15,10 @@ $ terraform console
     > true == true ? 1 : 0
     > false ? 1 : 0
     
+    > substr(12345, 0, 4)
+    > substr(12345, 2, 4)
+    > uuid()
+    > substr(uuid(), 0, 5)
 
 $ sudo apt-get install jq
 $ terraform providers schema -json | jq '.' > schema.json
