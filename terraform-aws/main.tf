@@ -29,7 +29,7 @@ module "database" {
 
 module "loadbalancing" {
   source                 = "./loadbalancing"
-  public_sg              = module.networking.public_sg
+  public_sg              = [module.networking.public_sg]
   public_subnets         = module.networking.public_subnets
   tg_port                = 8000
   tg_protocol            = "HTTP"
@@ -40,4 +40,15 @@ module "loadbalancing" {
   lb_interval            = 30
   listener_port          = 8000
   listener_protocol      = "HTTP"
+}
+
+module "compute" {
+  source          = "./compute"
+  instance_count  = 1
+  instance_type   = "t3.micro"
+  public_sg       = module.networking.public_sg
+  public_subnets  = module.networking.public_subnets
+  volume_size     = 10
+  key_name        = "mtckey"
+  public_key_path = "/home/ubuntu/.ssh/keymtc.pub"
 }

@@ -19,6 +19,10 @@ $ terraform console
     > substr(12345, 2, 4)
     > uuid()
     > substr(uuid(), 0, 5)
+    
 
 $ sudo apt-get install jq
 $ terraform providers schema -json | jq '.' > schema.json
+
+$ ssh-keygen -t rsa
+    > /home/ubuntu/.ssh/keymtc
