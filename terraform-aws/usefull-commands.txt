@@ -26,3 +26,5 @@ $ terraform providers schema -json | jq '.' > schema.json
 
 $ ssh-keygen -t rsa
     > /home/ubuntu/.ssh/keymtc
+    
+    > ssh -i ~/.ssh/ubuntu/keymtc ubuntu@xxx.xxx.xxx

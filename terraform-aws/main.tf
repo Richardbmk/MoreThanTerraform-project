@@ -21,6 +21,7 @@ module "database" {
   dbname                 = var.dbname
   dbuser                 = var.dbuser
   dbpassword             = var.dbpassword
+  db_endpoint            = module.database.db_endpoint
   db_identifier          = "mtc-db"
   skip_db_snapshot       = true
   db_subnet_group_name   = module.networking.db_subnet_group_name[0]
@@ -51,4 +52,9 @@ module "compute" {
   volume_size     = 10
   key_name        = "mtckey"
   public_key_path = "/home/ubuntu/.ssh/keymtc.pub"
+  user_data_path  = "${path.root}/userdata.tpl"
+  dbname          = var.dbname
+  dbuser          = var.dbuser
+  dbpassword      = var.dbpassword
+  db_endpoint     = module.database.db_endpoint
 }
