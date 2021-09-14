@@ -1,7 +1,5 @@
-# --- database/main.tf ---
-
 resource "aws_db_instance" "mtc_db" {
-  allocated_storage      = var.db_storage
+  allocated_storage      = 10
   engine                 = "mysql"
   engine_version         = var.db_engine_version
   instance_class         = var.db_instance_class
@@ -12,7 +10,6 @@ resource "aws_db_instance" "mtc_db" {
   vpc_security_group_ids = var.vpc_security_group_ids
   identifier             = var.db_identifier
   skip_final_snapshot    = var.skip_db_snapshot
-
   tags = {
     Name = "mtc-db"
   }

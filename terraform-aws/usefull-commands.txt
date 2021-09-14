@@ -27,4 +27,14 @@ $ terraform providers schema -json | jq '.' > schema.json
 $ ssh-keygen -t rsa
     > /home/ubuntu/.ssh/keymtc
     
-    > ssh -i ~/.ssh/ubuntu/keymtc ubuntu@xxx.xxx.xxx
+    > sudo ssh -i ~/.ssh/ubuntu/keymtc ubuntu@xxx.xxx.xxx
+    
+ubutuntu@mtc: $ kubectl apply -f deployment.yml
+ubutuntu@mtc: $ kubectl get nodes
+ubutuntu@mtc: $ kubectl get pods
+
+> terraform state show module.loadbalancing.aws_lb.mtc_lb
+> terraform refresh
+
+$ terraform output -json | jq '."instance"."value"'
+$ terraform output -json | jq '."instance"."value"'
